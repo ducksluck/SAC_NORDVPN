@@ -1,4 +1,4 @@
-# Connect to a Random NordVPN server with OpenVPN
+# SAC_NordVPN:  An OpenVPN config scraper and random connection tool
 This a python solution to help randomize VPN server users are connected to.  
 Scrapes all NordVPN's OpenVPN configs and threads downloads. Downloading all 5000+ servers takes approximately 1.5 minutes.  
 User can select a country of preferece and double-VPNs.  Launches OpenVPN which handles login credentials. 

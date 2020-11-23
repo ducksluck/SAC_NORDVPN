@@ -15,11 +15,11 @@ Users can select a country of preferece as well as double-VPN country pairs. Scr
  
 
 **First Use**  
- 1) Select an option to download configs.  The reason for purging old configs is to ensure that you are attempting to connect to a valid server that is in fact still in operation by NordVPN.  
- 
- 2) Connect either to a randoom, selected country, or double vpn server.
 
- 3) If you don't like the colors change them. Changed color preferences persist after restart.
+ 1) Launch your python IDE as admin (or cmommand prompt) and run menu.py
+ 2) Select an option to download configs.  The reason for purging old configs is to ensure that you are attempting to connect to a valid server that is in fact still in operation by NordVPN.  
+ 3) Connect either to a randoom, selected country, or double vpn server.
+ 4) If you don't like the colors change them. Changed color preferences persist after restart.
 
 *Note:  The option 'Download: All Configs' has an option within to increase worker threads. Although it would be nice to have 100 threads downloading these configs at a time nordVPN servers will only allow so many downloads within a given period of time. If that limit is exceeded they will serve a smaller corrupt config file containing a warning that a limit has been reached. ( *shakes head* They could just provide us with an option to download a zip of all the configs. It's only ~28MB UNCOMPRESSED) Recommended number for max threads is 30-40. It could take about 17 mins to download the 10,600+ configs (TCP and UDP).  
 

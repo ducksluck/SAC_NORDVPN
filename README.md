@@ -3,7 +3,7 @@ This a python solution to help randomize VPN servers users connect to.
 Scrapes all NordVPN's OpenVPN configs and threads downloads. Downloading all 10,000+ servers takes approximately 20 minutes even with threading.  
 Users can select a country of preferece as well as double-VPN country pairs. Script launches OpenVPN as subprocess to handle login credentials as usual. 
 
-[![SAC_NordVPN_Menu](https://github.com/ducksluck/SAC_NORDVPN/blob/main/SAC_NordVPN/Menu.PNG)](#Menu)
+[![SAC_NordVPN_Menu](https://github.com/ducksluck/SAC_NordDVPN/blob/main/SAC_NordVPN/Menu.PNG)](#Menu)
 
 **Requirements**  
  1) Python must be installed and a IDE such as pyCharm

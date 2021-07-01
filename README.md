@@ -3,9 +3,10 @@ This is a Python solution to help randomize VPN servers which users connect to a
 
 Features:
    - SAC_NordVPN can scrape all configs, specified countries, and double-VPN country pairs. 
-   - Script can manage connections by launching OpenVPN and killing existing OVPN processes. 
-   - Color scheme can be changed.
    - Users can download TCP, UPD or both.
+   - Script can manage random connections by killing existing OVPN processes and launching OpenVPN. 
+   - User can specify TCP or UDP when connecting to a specified country.
+   - Color scheme can be changed.
    - Downloads are threaded and max workers can be adjusted as needed. Downloading all 10,000+ servers takes approximately 20 minutes even with threading. NordVPN has a limit for downloads in a given minute. (approx 30 workers hits the max allotment)  If the limit is reached the config will be corrupt (contains a warning message only). These corrupted files will automatically be purged and downloaded agian. 
 
 **CREDENTIALS ARE NOT MANAGED FOR SECURITY REASONS & PEACE OF MIND**

@@ -24,45 +24,52 @@ def getLinks(abrv, configPoolDir, colors):
     print("\n \x1b[%sm   Beginning scrape...\x1b[0m \n" % colors['color2'])
     sourceURL = 'https://nordvpn.com/ovpn/'
     r = requests.get(sourceURL)
+
+
     soup = bs(r.text, "html.parser")
+
+    
+    print("SOUP:", soup)
+
 
     #  Selection logic: All, doubleVPNs, single country -- TCP and/or UDP
     abrvlen = len(abrv)
     tempURLS = []
-    for i, link in enumerate(soup.findAll('a')):
+    for i, link in enumerate(soup.findAll('a')):   
         _fullurl = link.get('href')
-        if _fullurl.endswith('.ovpn'):  # ignore links that aren't opvn configs
-            # Download All
-            if abrv == "All":
-                if tcp_udp == 'both':                                                 # TCP -&- UDP
-                        tempURLS.append(_fullurl)
-                else:                                                                 # TCP -or- UDP
-                    if _fullurl.__contains__(tcp_udp):
-                        tempURLS.append(_fullurl)
-
-            # Filter Double VPNs
-            elif abrv == "-":
-                if tcp_udp == 'both':
-                    if "-" in _fullurl:
-                        tempURLS.append(_fullurl)
-                if tcp_udp == 'tcp443':
-                    if _fullurl.__contains__(tcp_udp) & _fullurl.__contains__("-"):
-                        tempURLS.append(_fullurl)
-                if tcp_udp == 'udp1194':
-                    if _fullurl.__contains__(tcp_udp) & _fullurl.__contains__("-"):
-                        tempURLS.append(_fullurl)
-
-            # Filter Single Country
-            else:
-                rawname = _fullurl[25:].split("/")[-1].split(".")
-                name = rawname[0]
-                if tcp_udp == 'both':
-                    if name[0:abrvlen] == abrv:
-                        tempURLS.append(_fullurl)
-                else:
-                    if name[0:abrvlen] == abrv :
+        if _fullurl is not None:
+            if _fullurl.endswith('.ovpn'):  # ignore links that aren't opvn configs
+                # Download All
+                if abrv == "All":
+                    if tcp_udp == 'both':                                                 # TCP -&- UDP
+                            tempURLS.append(_fullurl)
+                    else:                                                                 # TCP -or- UDP
                         if _fullurl.__contains__(tcp_udp):
                             tempURLS.append(_fullurl)
+
+                # Filter Double VPNs
+                elif abrv == "-":
+                    if tcp_udp == 'both':
+                        if "-" in _fullurl:
+                            tempURLS.append(_fullurl)
+                    if tcp_udp == 'tcp443':
+                        if _fullurl.__contains__(tcp_udp) & _fullurl.__contains__("-"):
+                            tempURLS.append(_fullurl)
+                    if tcp_udp == 'udp1194':
+                        if _fullurl.__contains__(tcp_udp) & _fullurl.__contains__("-"):
+                            tempURLS.append(_fullurl)
+
+                # Filter Single Country
+                else:
+                    rawname = _fullurl[25:].split("/")[-1].split(".")
+                    name = rawname[0]
+                    if tcp_udp == 'both':
+                        if name[0:abrvlen] == abrv:
+                            tempURLS.append(_fullurl)
+                    else:
+                        if name[0:abrvlen] == abrv :
+                            if _fullurl.__contains__(tcp_udp):
+                                tempURLS.append(_fullurl)
 
     # Prep for downloading, get 'max workers' if downloading all configs
     serversum = len(tempURLS)

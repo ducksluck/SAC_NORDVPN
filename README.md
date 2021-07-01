@@ -1,9 +1,13 @@
 # SAC_NordVPN:  An OpenVPN config scraper and random connection tool
 This is a Python solution to help randomize VPN servers which users connect to and automate the downloading process from NordVPN's endless wall of text. 
 
-SAC_NordVPN can scrape all configs, specified countries, and double-VPN country pairs. Downloads are threaded and max workers can be adjusted as needed. Downloading all 10,000+ servers takes approximately 20 minutes even with threading. NordVPN has a limit for downloads in a given minute. (approx 30 workers hits the max allotment)  If the limit is reached the config will be corrupt (contains a warning message only). These corrupted files will automatically be purged and downloaded agian. 
+SAC_NordVPN can scrape all configs, specified countries, and double-VPN country pairs. 
+
+Downloads are threaded and max workers can be adjusted as needed. Downloading all 10,000+ servers takes approximately 20 minutes even with threading. NordVPN has a limit for downloads in a given minute. (approx 30 workers hits the max allotment)  If the limit is reached the config will be corrupt (contains a warning message only). These corrupted files will automatically be purged and downloaded agian. 
 
 Script can manage connections by launching OpenVPN and killing existing OVPN processes. 
+
+Color scheme can be changed.
 
 **CREDENTIALS ARE NOT MANAGED FOR SECURITY REASONS & PEACE OF MIND**
 Yes, you still need to manually type in your creds as such.

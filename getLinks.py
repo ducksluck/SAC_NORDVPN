@@ -25,12 +25,7 @@ def getLinks(abrv, configPoolDir, colors):
     sourceURL = 'https://nordvpn.com/ovpn/'
     r = requests.get(sourceURL)
 
-
     soup = bs(r.text, "html.parser")
-
-    
-    print("SOUP:", soup)
-
 
     #  Selection logic: All, doubleVPNs, single country -- TCP and/or UDP
     abrvlen = len(abrv)
